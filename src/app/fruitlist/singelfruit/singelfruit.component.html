@@ -1,0 +1,78 @@
+<section class="singleFruitBox">
+  <div>
+    <!-- @if(fruit.stars < 3) { -->
+    <img src="./assets/img/fruits/{{ fruit.img }}" alt="" srcset="" />
+    <!-- } @else { Nicht genug bewertungen abgegeben. } -->
+  </div>
+
+  <div>
+    <h2>
+      {{ fruit.name }}
+    </h2>
+    <!-- <h2>
+      <app-singelfruit [fruitNumber]="index"></app-singelfruit>
+      {{ fruit.name }}
+    </h2> -->
+
+    <div>
+      <p><b>Bewertung:</b></p>
+      <div>
+        @for (count of [1,2,3,4,5]; track fruit) { @switch (true) { @case
+        (fruit.stars >= count) {
+        <img src="./assets/img/stars/star.svg" alt="" srcset="" />
+        } @case (fruit.stars >= count - 0.5) {
+        <img src="./assets/img/stars/star-half.svg" alt="" srcset="" />
+        } @default {
+        <img src="./assets/img/stars/star-empty.svg" alt="" srcset="" />
+        } }}
+
+        <!-- @for (count of [1,2,3,4,5]; track fruitlist) { @if (fruit.stars >=
+        count) {
+        <img src="./assets/img/stars/star.svg" alt="" srcset="" />
+        } @else if (fruit.stars >= count - 0.5) {
+        <img src="./assets/img/stars/star-half.svg" alt="" srcset="" />
+        } @else {
+        <img src="./assets/img/stars/star-empty.svg" alt="" srcset="" />
+        } } -->
+
+        <!-- <img src="./assets/img/stars/star.svg" alt="" srcset="" />
+        <img src="./assets/img/stars/star.svg" alt="" srcset="" />
+        <img src="./assets/img/stars/star.svg" alt="" srcset="" />
+        <img src="./assets/img/stars/star-half.svg" alt="" srcset="" />
+        <img src="./assets/img/stars/star-empty.svg" alt="" srcset="" /> -->
+
+        <!-- <p
+          [ngStyle]="{
+            color: 'whitesmoke',
+            'font-size': '18px',
+            'background-color': fruit.stars > 3 ? fontColorGood : fontColorBad,
+            'border-radius': '5px',
+            padding: '6px'
+          }"
+        >
+          ({{ fruit.stars }})
+        </p> -->
+        <!-- <p [ngStyle]="{ color: 'red' }">({{ fruit.stars }})</p> -->
+        <p>({{ fruit.stars }})</p>
+      </div>
+    </div>
+
+    <div><b>Art:</b><br />{{ fruit.genus }}</div>
+    <div><b>Beschreibung:</b><br />{{ fruit.description }}</div>
+
+    <div>
+      <div>
+        @for(review of fruit.reviews; track review) {
+        <div>
+          <b>{{ review.name }}:</b><br />{{ review.text }}
+        </div>
+        } @empty { No commands. }
+      </div>
+      <div>
+        <input type="text" [(ngModel)]="inputData"/><button>
+          <img src="./assets/img/arrow-35-32.png" alt="" srcset="" (click)="sendInputData()"/>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

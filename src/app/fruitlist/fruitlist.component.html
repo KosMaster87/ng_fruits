@@ -1,1 +1,23 @@
-<p>fruitlist works!</p>
+<!-- <p>fruitlist works {{ howItWorks }}!</p>
+<p>fruitlist works {{ fruitlist[0].name }}!</p> -->
+
+<!-- @for(item of fruitlist; track item.name; let index = $index ){ -->
+<!-- @for(item of fruitlist; track item.name; let last = $last ){ -->
+
+<!-- <p>{{ index }}: {{ item.name }}</p> -->
+<!-- <p>{{ last }}: {{ item.name }}</p> -->
+<!-- } -->
+
+<div class="fruitlist_content">
+  @for(singelFruit of fruitListData.fruitlist; track singelFruit.name; let index = $index){
+
+    <!-- (fruitName) horht auf den Emitter. Hier das child singelfruit.compoment.ts -->
+  <app-singelfruit
+    (fruitName)="addComment($event, index)"
+    (fruitName)="nameLog($event)"
+    (click)="numLog(index)"
+    [fruit]="singelFruit"
+  ></app-singelfruit>
+
+  }
+</div>

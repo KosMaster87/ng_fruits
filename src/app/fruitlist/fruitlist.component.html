@@ -9,9 +9,10 @@
 <!-- } -->
 
 <div class="fruitlist_content">
-  @for(singelFruit of fruitListData.fruitlist; track singelFruit.name; let index = $index){
+  @for(singelFruit of fruitListData.fruitlist; track singelFruit.name; let index
+  = $index){
 
-    <!-- (fruitName) horht auf den Emitter. Hier das child singelfruit.compoment.ts -->
+  <!-- (fruitName) höhrt auf den Emitter. Hier das child singelfruit.compoment.ts -->
   <app-singelfruit
     (fruitName)="addComment($event, index)"
     (fruitName)="nameLog($event)"
